@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMetrics | Manage Movies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-logo"><span class="icon">🎬</span> CineMetrics</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="manage.html" class="active">Manage Movies</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <div class="app-container" id="manage-page">
+        <header>
+            <h1>Manage Movie Database</h1>
+            <p class="subtitle">Create, Read, Update, and Delete movie records.</p>
+        </header>
+
+        <main>
+            <div class="actions-bar">
+                <div class="filters">
+                    <input type="text" id="filterTitle" placeholder="Search by Title..." class="filter-input">
+                    <input type="number" id="filterYear" placeholder="Year" class="filter-input" style="width: 100px;">
+                    <input type="text" id="filterGenre" placeholder="Genre" class="filter-input">
+                    <select id="filterRating" class="filter-input">
+                        <option value="">Min Rating</option>
+                        <option value="9">9+</option>
+                        <option value="8">8+</option>
+                        <option value="7">7+</option>
+                        <option value="6">6+</option>
+                    </select>
+                </div>
+                <button id="addMovieBtn" class="btn-primary"><i class="fas fa-plus"></i> Add New Movie</button>
+            </div>
+
+            <div class="table-section">
+                <table id="moviesTable">
+                    <thead>
+                        <tr>
+                            <th>Poster</th>
+                            <th>Title</th>
+                            <th>Year</th>
+                            <th>Rating</th>
+                            <th>Genre</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="moviesTableBody">
+                        <!-- Rows injected via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for Create/Update -->
+    <div id="movieModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modalTitle">Add Movie</h2>
+            <form id="movieForm">
+                <input type="hidden" id="movieId">
+
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="year">Year</label>
+                        <input type="number" id="year" name="year" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="imdbRating">IMDb Rating</label>
+                        <input type="number" id="imdbRating" name="imdbRating" step="0.1" min="0" max="10">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="genre">Genre (comma separated)</label>
+                    <input type="text" id="genre" name="genre" placeholder="Action, Drama, Sci-Fi">
+                </div>
+
+                <div class="form-group">
+                    <label for="poster">Poster URL</label>
+                    <input type="url" id="poster" name="poster" placeholder="https://...">
+                </div>
+
+                <div class="form-group">
+                    <label for="plot">Plot</label>
+                    <textarea id="plot" name="plot" rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Save Movie</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
