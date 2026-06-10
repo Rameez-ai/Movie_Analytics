@@ -1,3 +1,13 @@
+---
+title: CineMetrics Movie Analytics
+emoji: 🎬
+colorFrom: purple
+colorTo: cyan
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # 🎬 CineMetrics | Movie Analytics & ETL Pipeline
 
 CineMetrics is an end-to-end web application and data pipeline designed to ingest, process, and analyze film metadata. It implements a robust **ETL (Extract, Transform, Load)** pipeline that fetches raw data from the **OMDb (Open Movie Database) API**, cleanses and normalizes it, and saves it into a **MongoDB** database. A modern **React** dashboard then aggregates this data to visualize industry trends and manage entries.
