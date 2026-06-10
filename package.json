@@ -4,11 +4,13 @@
   "description": "Movie Analytics System using OMDb API, MongoDB, and Web Technologies",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "etl": "node etl.js",
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "start": "node backend/server.js",
+    "etl": "node backend/etl.js",
+    "dev:server": "node backend/server.js",
+    "dev:client": "vite frontend",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build": "vite build frontend",
+    "preview": "vite preview frontend"
   },
   "keywords": [
     "etl",
@@ -34,6 +36,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",
+    "concurrently": "^10.0.3",
     "vite": "^4.3.0"
   }
 }
